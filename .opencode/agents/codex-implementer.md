@@ -1,7 +1,7 @@
 ---
 description: Code implementation agent that receives detailed specs and implements changes using full file and shell access
 mode: subagent
-model: github-copilot/gpt-5.3-codex
+model: github-copilot/gpt-5.2-codex
 hidden: true
 temperature: 0.1
 tools:

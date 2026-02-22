@@ -34,7 +34,7 @@ When the pipeline completes, you get a summary of what changed, which files were
 
 **Orchestrator** (`claude-opus-4.6` via GitHub Copilot): Read-only access to the codebase. Cannot write or edit files. Can run `git diff`, `git log`, `git status`, and `git show` for review. Can only dispatch tasks to the implementer.
 
-**Implementer** (`gpt-5.3-codex` via GitHub Copilot): Full file access — read, write, edit, bash. No Task tool access (cannot spawn further agents). Hidden from the `@` autocomplete menu.
+**Implementer** (`gpt-5.2-codex` via GitHub Copilot): Full file access — read, write, edit, bash. No Task tool access (cannot spawn further agents). Hidden from the `@` autocomplete menu.
 
 **Workflow logger**: A plugin that tracks how many times the implementer was dispatched, how many review cycles occurred, and shows a toast notification when the pipeline finishes.
 
@@ -76,7 +76,7 @@ The agents default to these models through the GitHub Copilot provider:
 | Agent | Model |
 |---|---|
 | Orchestrator | `github-copilot/claude-opus-4.6` |
-| Implementer | `github-copilot/gpt-5.3-codex` |
+| Implementer | `github-copilot/gpt-5.2-codex` |
 
 To use different models or providers, edit the `model:` field in each agent's markdown file. Run `opencode models` to see what's available through your configured providers.
 
