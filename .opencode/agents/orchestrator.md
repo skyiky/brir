@@ -36,7 +36,8 @@ Your pipeline is enforced by the `pipeline-enforcer` plugin. Phase transitions a
 - Call `pipeline_advance('<target>')` to move to the next phase
 - Call `pipeline_status()` to check your current phase, prerequisites, and valid transitions
 - The Task tool is ONLY available during the DISPATCHING phase -- attempting to use it in other phases will be blocked
-- You MUST run `git diff` during REVIEWING before you can advance to REPORTING
+- In git repos: you MUST run `git diff` during REVIEWING before you can advance to REPORTING
+- In non-git directories: the plugin auto-detects this and skips the `git diff` requirement. Verify changes by reading files directly instead.
 
 The plugin injects your current phase into the system prompt on every turn. Respect it.
 
@@ -99,7 +100,8 @@ IMPORTANT: Always provide ABSOLUTE file paths (e.g., `E:\dev\brir\src\file.ts`) 
 
 After the implementer returns:
 
-1. **Run `git diff`** to see ALL changes made (REQUIRED -- you cannot advance without this)
+1. **In git repos**: Run `git diff` to see ALL changes (REQUIRED -- you cannot advance without this)
+   **In non-git dirs**: Read each modified file directly to verify changes (git diff is skipped automatically)
 2. Read each modified file to understand the full context
 3. Evaluate against the approved design from Phase 0:
    - Does the implementation match the user's intent?
